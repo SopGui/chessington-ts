@@ -28,9 +28,23 @@ export default class Knight extends Piece {
 
                 const destinationSquare = new Square(currentSquare.row + rowDelta, currentSquare.col + colDelta);
 
-                if(board.isInBoard(destinationSquare)){
-                    moves.push(destinationSquare);
+                if(!board.isInBoard(destinationSquare)){
+                    continue;
                 }
+
+                const destinationPiece = board.getPiece(destinationSquare);
+
+                //cannot take friendly pieces
+                if(destinationPiece && destinationPiece.player === this.player){
+                    continue;
+                }
+
+                //cannot take king
+                if(destinationPiece && destinationPiece.getPieceType() === PieceType.KING){
+                    continue;
+                }
+
+                moves.push(destinationSquare);
             }
         }
 
