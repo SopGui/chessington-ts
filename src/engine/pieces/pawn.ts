@@ -2,6 +2,7 @@ import Piece from './piece';
 import Board from "../board";
 import Player from "../player";
 import Square from "../square";
+import Direction from "../direction";
 
 export default class Pawn extends Piece {
 
@@ -16,40 +17,42 @@ export default class Pawn extends Piece {
         this.hasMoved = true;
     }
 
+    checkForPawnMoves(board: Board, startSquare: Square, yDirection: Direction): Square[]{
+
+        const moves: Square[] = new Array(0)
+
+        const oneSquareDif = new Square(startSquare.row + yDirection, startSquare.col);
+        moves.push(oneSquareDif);
+
+        if(!this.hasMoved){
+            const twoSquareDif = new Square(startSquare.row + (yDirection * 2), startSquare.col);
+            moves.push(twoSquareDif);
+        }
+
+        return moves;
+    }
+
     getAvailableMoves(board: Board) {
 
         const currentSquare = board.findPiece(this);
 
-        const moves: Square[] = new Array(0);
+        let moves: Square[] = new Array(0);
 
         switch (this.player){
 
-            case Player.BLACK:
-            {
-                const oneSquareDown = new Square(currentSquare.row - 1, currentSquare.col);
-                const twoSquaresDown = new Square(currentSquare.row - 2, currentSquare.col);
-
-                moves.push(oneSquareDown);
-                if(!this.hasMoved){
-                    moves.push(twoSquaresDown);
-                }
-
-                break;
-            }
             case Player.WHITE:
             {
-                const oneSquareUp = new Square(currentSquare.row + 1, currentSquare.col);
-                const twoSquaresUp = new Square(currentSquare.row + 2, currentSquare.col);
+                moves = moves.concat(this.checkForPawnMoves(board,currentSquare,1));
 
-                moves.push(oneSquareUp)
-                if(!this.hasMoved){
-                    moves.push(twoSquaresUp);
-                }
+                return moves;
+            }
+            case Player.BLACK:
+            {
+                moves = moves.concat(this.checkForPawnMoves(board,currentSquare,-1));
 
-                break;
+                return moves;
             }
         }
 
-        return moves;
     }
 }

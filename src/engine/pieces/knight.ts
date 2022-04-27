@@ -12,9 +12,7 @@ export default class Knight extends Piece {
 
         const moves: Square[] = new Array(0);
         const currentSquare: Square = board.findPiece(this);
-try {
-    
-}
+
         for(let rowDelta = -2; rowDelta <= 2; rowDelta++){
             for(let colDelta = -2; colDelta <= 2; colDelta++){
 
