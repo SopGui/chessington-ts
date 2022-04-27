@@ -17,15 +17,27 @@ export default class Pawn extends Piece {
         this.hasMoved = true;
     }
 
+    tileIsOnBoardAndAvailable(board: Board, square: Square) {
+        return board.isInBoard(square) && !board.getPiece(square);
+    }
+
     checkForPawnMoves(board: Board, startSquare: Square, yDirection: Direction): Square[]{
 
         const moves: Square[] = new Array(0)
 
         const oneSquareDif = new Square(startSquare.row + yDirection, startSquare.col);
+        if(!this.tileIsOnBoardAndAvailable(board, oneSquareDif)){
+            //stop here if not available - cannot make any moves as path blocked
+            return moves;
+        }
         moves.push(oneSquareDif);
 
-        if(!this.hasMoved){
-            const twoSquareDif = new Square(startSquare.row + (yDirection * 2), startSquare.col);
+        if(this.hasMoved){
+            //stop here if moved already - can only move 1 space after first move
+            return moves;
+        }
+        const twoSquareDif = new Square(startSquare.row + (yDirection * 2), startSquare.col);
+        if(this.tileIsOnBoardAndAvailable(board,twoSquareDif)){
             moves.push(twoSquareDif);
         }
 
