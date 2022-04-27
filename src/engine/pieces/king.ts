@@ -16,9 +16,21 @@ export default class King extends Piece {
     addSquare(board: Board,startSquare: Square, xDelta: number, yDelta: number, moves: Square[]): void{
 
         const squareToAdd = new Square(startSquare.row + yDelta, startSquare.col + xDelta);
-        if(board.isInBoard(squareToAdd)){
-            moves.push(squareToAdd);
+
+        if(!board.isInBoard(squareToAdd)){
+            return;
         }
+
+        const destinationPiece = board.getPiece(squareToAdd);
+
+        if(destinationPiece && destinationPiece.player === this.player){
+            return;
+        }
+        if(destinationPiece && destinationPiece.getPieceType() === PieceType.KING){
+            return;
+        }
+
+        moves.push(squareToAdd);
 
     }
 
