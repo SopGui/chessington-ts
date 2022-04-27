@@ -1,7 +1,7 @@
 {
   "name": "chessington",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter project for a chess-based TDD exercise",
   "main": "src/index.ts",
   "scripts": {
     "start": "npm run build && node dist/index.js",
@@ -29,5 +29,16 @@
   },
   "dependencies": {
     "express": "^4.16.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SopGui/chessington-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SopGui/chessington-ts/issues"
+  },
+  "homepage": "https://github.com/SopGui/chessington-ts#readme"
 }
