@@ -22,7 +22,7 @@ export default class Piece {
 
         let diagonalSquare = new Square(startSquare.row + yInterval, startSquare.col + xInterval);
 
-        while(board.isInBoard(diagonalSquare)){
+        while(board.isInBoard(diagonalSquare) && !board.getPiece(diagonalSquare)){
             moves.push(diagonalSquare);
             diagonalSquare = new Square(diagonalSquare.row + yInterval, diagonalSquare.col + xInterval);
         }
