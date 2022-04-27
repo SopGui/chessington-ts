@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -26,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/sopgui/Documents/Training/chessington-ts",
+    "last_opened_file_path": "C:/Users/sopgui/Documents/Training/chessington-ts/src/engine",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -36,7 +43,12 @@
     "ts.external.directory.path": "C:\\Users\\sopgui\\Documents\\Training\\chessington-ts\\node_modules\\typescript\\lib"
   }
 }]]></component>
-  <component name="RunManager" selected="Mocha.All Tests" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sopgui\Documents\Training\chessington-ts\src\engine" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651048297407</updated>
-      <workItem from="1651048298711" duration="7871000" />
+      <workItem from="1651048298711" duration="11440000" />
     </task>
     <servers />
   </component>
