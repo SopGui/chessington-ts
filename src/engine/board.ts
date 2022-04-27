@@ -36,6 +36,10 @@ export default class Board {
         return this.getHeight() > 0 ? this.board[0].length : 0;
     }
 
+    isInBoard(square: Square) {
+        return square.row >= 0 && square.col >= 0 && square.row < this.getHeight() && square.col < this.getWidth();
+    }
+
     findPiece(pieceToFind: Piece) {
         for (let row = 0; row < this.board.length; row++) {
             for (let col = 0; col < this.board[row].length; col++) {
