@@ -3,9 +3,6 @@ import Square from "../square";
 import Player from "../player";
 
 export default class Piece {
-
-    protected hasMoved = false;
-
     constructor(public readonly player: Player) {
     }
 
@@ -14,7 +11,6 @@ export default class Piece {
     }
 
     moveTo(board: Board, newSquare: Square) {
-        this.hasMoved = true;
         const currentSquare = board.findPiece(this);
         board.movePiece(currentSquare, newSquare);
     }

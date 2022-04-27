@@ -5,15 +5,22 @@ import Square from "../square";
 
 export default class Pawn extends Piece {
 
+    private hasMoved = false
+
     constructor(player: Player) {
         super(player);
+    }
+
+    moveTo(board: Board, newSquare: Square) {
+        super.moveTo(board, newSquare);
+        this.hasMoved = true;
     }
 
     getAvailableMoves(board: Board) {
 
         const currentSquare = board.findPiece(this);
 
-        const moves: Square[] = [];
+        const moves: Square[] = new Array(0);
 
         switch (this.player){
 

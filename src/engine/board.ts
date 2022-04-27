@@ -28,6 +28,14 @@ export default class Board {
         return this.board[square.row][square.col];
     }
 
+    getHeight() {
+        return this.board.length;
+    }
+
+    getWidth() {
+        return this.getHeight() > 0 ? this.board[0].length : 0;
+    }
+
     findPiece(pieceToFind: Piece) {
         for (let row = 0; row < this.board.length; row++) {
             for (let col = 0; col < this.board[row].length; col++) {
