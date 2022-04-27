@@ -2,10 +2,15 @@ import Piece from './piece';
 import Board from "../board";
 import Player from "../player";
 import Square from "../square";
+import PieceType from "./peiceType";
 
 export default class King extends Piece {
     constructor(player: Player) {
         super(player);
+    }
+
+    getPieceType(): PieceType{
+        return PieceType.KING;
     }
 
     addSquare(board: Board,startSquare: Square, xDelta: number, yDelta: number, moves: Square[]): void{

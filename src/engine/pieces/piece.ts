@@ -2,6 +2,7 @@ import Board from "../board";
 import Square from "../square";
 import Player from "../player";
 import Direction from "../direction";
+import PieceType from "./peiceType";
 
 export default class Piece {
     constructor(public readonly player: Player) {
@@ -9,6 +10,10 @@ export default class Piece {
 
     getAvailableMoves(board: Board) {
         throw new Error('This method must be implemented, and return a list of available moves');
+    }
+
+    getPieceType(): PieceType{
+        throw new Error('This method must be implemented, and return the piece type');
     }
 
     moveTo(board: Board, newSquare: Square) {
@@ -25,6 +30,14 @@ export default class Piece {
         while(board.isInBoard(diagonalSquare) && !board.getPiece(diagonalSquare)){
             moves.push(diagonalSquare);
             diagonalSquare = new Square(diagonalSquare.row + yInterval, diagonalSquare.col + xInterval);
+        }
+
+        //check if path was blocked by opposing piece - if yes, we can take it, as long as it's not the king
+        if(board.isInBoard(diagonalSquare)){
+            const blockingPiece = board.getPiece(diagonalSquare);
+            if(blockingPiece?.player !== this.player && blockingPiece?.getPieceType() !== PieceType.KING){
+                moves.push(diagonalSquare);
+            }
         }
 
         return moves;

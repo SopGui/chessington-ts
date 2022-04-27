@@ -3,6 +3,7 @@ import Board from "../board";
 import Player from "../player";
 import Square from "../square";
 import Direction from "../direction";
+import PieceType from "./peiceType";
 
 export default class Pawn extends Piece {
 
@@ -10,6 +11,10 @@ export default class Pawn extends Piece {
 
     constructor(player: Player) {
         super(player);
+    }
+
+    getPieceType(): PieceType{
+        return PieceType.PAWN;
     }
 
     moveTo(board: Board, newSquare: Square) {

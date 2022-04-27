@@ -1,10 +1,15 @@
 import Piece from './piece';
 import Board from "../board";
 import Player from "../player";
+import PieceType from "./peiceType";
 
 export default class Queen extends Piece {
     constructor(player: Player) {
         super(player);
+    }
+
+    getPieceType(): PieceType{
+        return PieceType.QUEEN;
     }
 
     getAvailableMoves(board: Board) {
